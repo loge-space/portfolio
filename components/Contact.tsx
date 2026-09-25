@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { personalData } from "@/lib/data";
-import { Mail, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import Link from "next/link";
 import { RangoliFlower } from "./Doodles";
 
@@ -26,7 +26,7 @@ export default function Contact() {
                 Let's create <span className="italic">together.</span>
               </h2>
               <p className="body-text max-w-md">
-                Open to new opportunities and collaborations. Whether you have a project in mind or simply want to connect — I'll always write back.
+                Open to new opportunities and collaborations. Whether you have a project in mind or simply want to connect — I'd love to hear from you.
               </p>
             </div>
             <div className="hidden sm:block opacity-85 pt-4 text-[hsl(16_75%_36%)]">
@@ -43,16 +43,9 @@ export default function Contact() {
             className="md:col-span-5 flex flex-col gap-4"
           >
             <Link
-              href={`mailto:${personalData.email}`}
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg font-bold text-sm bg-[hsl(16_75%_36%)] text-white hover:bg-[hsl(16_80%_30%)] border border-[hsl(16_75%_36%)] shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <Mail size={18} />
-              Send an Email
-            </Link>
-            <Link
               href={personalData.socials.linkedin}
               target="_blank"
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg font-bold text-sm bg-white text-[hsl(16_75%_36%)] hover:bg-[hsl(16_75%_36%/0.08)] border-2 border-[hsl(16_75%_36%)] shadow-xs hover:-translate-y-0.5 transition-all duration-200"
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg font-bold text-sm bg-[hsl(16_75%_36%)] text-white hover:bg-[hsl(16_80%_30%)] border border-[hsl(16_75%_36%)] shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
             >
               <Linkedin size={18} />
               Connect on LinkedIn
@@ -68,13 +61,10 @@ export default function Contact() {
               Read on Medium
             </Link>
 
-            {/* Divider note */}
-            <div className="text-center pt-2 space-y-1">
+            {/* Location note */}
+            <div className="text-center pt-2">
               <p className="label-overline">
                 Based in Puducherry, India · Available globally
-              </p>
-              <p className="text-xs text-muted-foreground" style={{ fontFamily: "var(--font-inter)" }}>
-                {personalData.email} · {personalData.phone}
               </p>
             </div>
           </motion.div>

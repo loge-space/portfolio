@@ -3,8 +3,6 @@ export const personalData = {
     fullName: "Logeshwari Sankar",
     role: "Content Writer | AI-Assisted Content | Research & Creative Communication",
     bio: "M.A. English graduate with hands-on experience in AI-assisted content, research, product building, conversational AI, and creative communication. Combining literature, empathy, and AI, I build clear, engaging, and human-centered digital experiences.",
-    email: "slogeshwari23@gmail.com",
-    phone: "+91 63801 01259",
     location: "Puducherry, India",
     socials: {
         linkedin: "https://www.linkedin.com/in/logeshwari-sankar",

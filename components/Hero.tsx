@@ -90,7 +90,7 @@ export default function Hero() {
                 href="#work"
                 className="flex items-center gap-2 bg-[hsl(16_75%_36%)] text-white hover:bg-[hsl(16_80%_30%)] py-3 px-6 rounded-lg font-bold text-sm shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
               >
-                View Work <ArrowRight className="w-4 h-4" />
+                View Products <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="#about"

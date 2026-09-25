@@ -89,42 +89,61 @@ export const skills = [
     { name: "Persona & Empathy Mapping", category: "research" }
 ];
 
-export const projects = [
+export const products = [
     {
         title: "Therafora — AI Mental Health Companion",
-        description: "An AI-powered mental-health self-care product featuring Lily, an empathetic AI assistant. Designed conversational UX, emotional support flows, self-care journaling, and responsible communication boundaries.",
+        tagline: "Empathetic conversational AI for emotional support & reflection",
+        description: "An AI-powered mental-health self-care product featuring Lily, an empathetic AI assistant. Designed conversational UX, emotional support flows, self-care journaling routines, and responsible communication boundaries for sensitive mental-health topics.",
         tags: ["Conversational AI", "Mental Health", "Product Concept", "Prompt UX"],
         image: "/therafora.png",
         link: "https://www.therafora.com",
-        logos: ["/therafora-logo.jpg"]
     },
     {
+        title: "GoTamil — Free Tamil Spell & Grammar Checker",
+        tagline: "Tamil-first AI, built for accuracy",
+        description: "Contributed to brand identity, distinct logo design, and responsive UI layout. Designed culturally resonant digital visual communication for an AI-powered Tamil grammar and spell-checking platform.",
+        tags: ["Brand Identity", "UI Design", "Tamil AI", "EdTech"],
+        image: "/gotamil.png",
+        link: "https://www.gotamil.in/",
+    },
+    {
+        title: "GoMalayalam — Free Malayalam Spell & Grammar Checker Online",
+        tagline: "Malayalam grammar checker & writing assistant online",
+        description: "Designed brand identity, visual style guide, and digital interface for GoMalayalam. Created user-centric, clean layouts tailored to Malayalam language typographies and modern web standards.",
+        tags: ["Brand Identity", "UI Design", "Malayalam AI", "Visuals"],
+        image: "/gotamil_wireframe.png",
+        link: "https://www.gomalayalam.in/",
+    },
+    {
+        title: "GoJapanese — Japanese Grammar Checker and Keigo Assistant",
+        tagline: "Japanese Grammar Checker and Keigo Assistant",
+        description: "Developed brand identity direction, logo concepts, and UI experience for GoJapanese, assisting learners and professionals with accurate Japanese grammar, nuance, and Keigo honorific expressions.",
+        tags: ["UI Layouts", "Brand Identity", "Japanese Keigo AI", "EdTech"],
+        image: "/dashboard.png",
+        link: "https://www.gojapanese.net/",
+    },
+    {
+        title: "AI Dietitian & Digital Prototypes",
+        tagline: "Rapid prototyping & structured user workflows",
+        description: "Structured user interactions and rapid prototyping using Google AI Studio and modern AI tooling, including an AI Dietitian assistant and dynamic price tracker.",
+        tags: ["Google AI Studio", "Rapid Prototyping", "AI Interaction", "UI Concepts"],
+        image: "/dashboard_wireframe.png",
+        link: "#",
+    }
+];
+
+export const projects = products; // Alias for compatibility
+
+export const articles = [
+    {
         title: "Dopamine Austerity vs. Sustainable Living",
+        subtitle: "The Psychology of Consumption, Attention, and Intentional Living in an Overstimulated Era",
         description: "A featured Medium essay analyzing the psychology of digital consumption, dopamine loops, lifestyle design, and sustainable habit formation in an overstimulated digital world.",
         tags: ["Medium Publication", "Psychology", "Digital Culture", "Productivity"],
         image: "/medium-dopamine.png",
         link: "https://medium.com/@slogeshwari23/dopamine-austerity-vs-sustainable-living-dcc157405ad7",
-        logos: []
-    },
-    {
-        title: "GoLanguage Platforms (Tamil, Malayalam, Japanese)",
-        description: "Founding Designer creating brand identity, distinct logos, UI layouts, and culturally resonant digital visual communication for multiple language-learning apps.",
-        tags: ["Brand Identity", "UI Layouts", "Visual Design", "EdTech"],
-        image: "/gotamil.png",
-        link: "https://www.gotamil.in",
-        logos: [
-            "/gotamil-logo.png",
-            "https://logo.clearbit.com/gomalayalam.in",
-            "https://logo.clearbit.com/gojapanese.net"
-        ]
-    },
-    {
-        title: "AI Dietitian & Digital Prototypes",
-        description: "Structured user interactions and rapid prototyping using Google AI Studio and modern AI tooling, including an AI Dietitian assistant and dynamic price tracker.",
-        tags: ["Google AI Studio", "Rapid Prototyping", "AI Interaction", "UI Concepts"],
-        image: "/dashboard.png",
-        link: "#",
-        logos: []
+        readTime: "5 min read",
+        platform: "Medium"
     }
 ];
 

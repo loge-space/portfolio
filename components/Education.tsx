@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { experience } from "@/lib/data";
+import { education } from "@/lib/data";
 import { RangoliFlower } from "./Doodles";
-import { Briefcase } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
-export default function Experience() {
+export default function Education() {
   return (
-    <section id="experience" className="py-32 px-6 border-t border-border">
+    <section id="education" className="py-32 px-6 border-t border-border">
       <div className="container-editorial">
 
         <motion.div
@@ -18,12 +18,12 @@ export default function Experience() {
         >
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-[hsl(16_55%_95%)] border border-[hsl(16_40%_86%)] flex items-center justify-center text-[hsl(16_75%_36%)]">
-              <Briefcase size={22} />
+              <GraduationCap size={24} />
             </div>
             <div>
-              <p className="label-overline mb-1">Experience</p>
+              <p className="label-overline mb-1">Education</p>
               <h2 className="section-heading text-4xl md:text-6xl">
-                Work <span className="italic">History</span>
+                Academic <span className="italic">Background</span>
               </h2>
             </div>
           </div>
@@ -32,30 +32,32 @@ export default function Experience() {
           </div>
         </motion.div>
 
-        <div className="space-y-6">
-          {experience.map((item, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {education.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="bg-white rounded-2xl p-7 md:p-9 border-2 border-[hsl(16_75%_36%/0.22)] hover:border-[#F59E0B] hover:ring-2 hover:ring-[hsl(16_75%_36%)] transition-all duration-300 shadow-xs hover:shadow-lg"
+              className="bg-white rounded-2xl p-7 md:p-8 border-2 border-[hsl(16_75%_36%/0.22)] hover:border-[#F59E0B] hover:ring-2 hover:ring-[hsl(16_75%_36%)] transition-all duration-300 shadow-xs hover:shadow-lg flex flex-col justify-between"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-4">
+                  <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-white text-[hsl(16_75%_35%)] border border-[hsl(16_75%_36%/0.3)] shadow-xs">
+                    {item.period}
+                  </span>
+                </div>
                 <h3
-                  className="text-2xl md:text-3xl font-bold text-[hsl(16_75%_35%)] leading-snug"
+                  className="text-2xl md:text-3xl font-bold text-[hsl(16_75%_35%)] mb-2 leading-snug"
                   style={{ fontFamily: "var(--font-playfair)" }}
                 >
-                  {item.role}
+                  {item.institution}
                 </h3>
-                <span className="inline-flex items-center self-start sm:self-auto px-4 py-1.5 rounded-full text-xs font-bold bg-white text-[hsl(16_75%_35%)] border border-[hsl(16_75%_36%/0.3)] shadow-xs">
-                  {item.period}
-                </span>
+                <p className="text-base font-semibold text-[hsl(18_35%_30%)] mb-4" style={{ fontFamily: "var(--font-inter)" }}>
+                  {item.degree}
+                </p>
               </div>
-              <p className="text-base md:text-lg font-semibold text-[hsl(18_35%_30%)] mb-4" style={{ fontFamily: "var(--font-inter)" }}>
-                {item.company}
-              </p>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed pt-4 border-t border-[hsl(16_40%_86%)]" style={{ fontFamily: "var(--font-inter)" }}>
                 {item.description}
               </p>

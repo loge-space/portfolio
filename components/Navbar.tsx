@@ -6,12 +6,13 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Products", href: "#work" },
-  { name: "Writing", href: "#writing" },
-  { name: "Skills", href: "#skills" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "/#about" },
+  { name: "Education", href: "/education" },
+  { name: "Experience", href: "/experience" },
+  { name: "Products", href: "/#work" },
+  { name: "Writing", href: "/#writing" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -34,7 +35,7 @@ export default function Navbar() {
     >
       <div className="container-editorial flex justify-between items-center py-5">
         {/* Logo */}
-        <Link href="#" className="flex items-center gap-1">
+        <Link href="/" className="flex items-center gap-1">
           <span
             className="text-base font-black tracking-[-0.05em] text-foreground"
             style={{ fontFamily: "var(--font-playfair)" }}
@@ -47,7 +48,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -59,7 +60,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="#contact"
+            href="/#contact"
             className="bg-[hsl(16_75%_36%)] text-white hover:bg-[hsl(16_80%_30%)] py-2 px-4 rounded-md font-bold text-[13px] shadow-xs hover:shadow-md transition-all"
           >
             Get in touch
@@ -68,7 +69,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-foreground p-2 -mr-2"
+          className="lg:hidden text-foreground p-2 -mr-2"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -83,7 +84,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-t border-border overflow-hidden"
+            className="lg:hidden bg-background border-t border-border overflow-hidden"
           >
             <div className="container-editorial py-6 flex flex-col gap-5">
               {navLinks.map((link) => (
@@ -97,7 +98,7 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Link href="#contact" className="btn-primary self-start mt-2">
+              <Link href="/#contact" className="btn-primary self-start mt-2">
                 Get in touch
               </Link>
             </div>

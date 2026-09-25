@@ -128,29 +128,3 @@ export const projects = [
     }
 ];
 
-export const literatureToUx = [
-    {
-        phase: "Introduction",
-        literaryConcept: "Character Development",
-        uxConcept: "User Personas & Empathy",
-        description: "Developing complex characters in English Literature translates directly into building comprehensive user personas. Understanding character motivations, triggers, and backgrounds matches user empathy."
-    },
-    {
-        phase: "Conflict",
-        literaryConcept: "The Plot Arc & Tension",
-        uxConcept: "User Journey & Friction Mapping",
-        description: "Every good story centers on conflict. In UX, we map these conflicts as friction points in the user journey, analyzing where users struggle and where paths can be simplified."
-    },
-    {
-        phase: "Resolution",
-        literaryConcept: "The Denouement",
-        uxConcept: "Task Success & Delight States",
-        description: "The resolution of plot tension mirrors task completion. Creating delightful feedback loops, micro-interactions, and visual rewards mimics a satisfying narrative conclusion."
-    },
-    {
-        phase: "Style & Theme",
-        literaryConcept: "Motifs & Tone of Voice",
-        uxConcept: "Design Systems & Visual Identity",
-        description: "Recurring motifs build a book's thematic depth. In design, this manifests as system consistency, typographic hierarchy, color language, and unified design systems."
-    }
-];

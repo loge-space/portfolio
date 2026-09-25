@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { personalData, literatureToUx } from "@/lib/data";
+import { motion } from "framer-motion";
+import { personalData } from "@/lib/data";
 import { RangoliBloom } from "./Doodles";
 
 const specializations = [
@@ -14,8 +13,6 @@ const specializations = [
 ];
 
 export default function About() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
-
   return (
     <section id="about" className="py-32 px-6 border-t border-border">
       <div className="container-editorial">
@@ -26,7 +23,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-20 flex items-end justify-between"
+          className="mb-16 flex items-end justify-between"
         >
           <div>
             <p className="label-overline mb-4">About</p>
@@ -34,125 +31,66 @@ export default function About() {
               Design <span className="italic">Philosophy</span>
             </h2>
           </div>
-          <div className="hidden sm:block opacity-40 pr-4">
+          <div className="hidden sm:block opacity-85 pr-4 text-[hsl(16_75%_36%)]">
             <RangoliBloom size={72} />
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        {/* Content Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Bio & Specialization Tags */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-8 space-y-6"
+          >
+            <p className="body-text text-lg md:text-xl leading-relaxed">
+              {personalData.bio}
+            </p>
 
-          {/* Left: Bio */}
-          <div className="lg:col-span-5 space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <p className="body-text mb-6">{personalData.bio}</p>
-
-              {/* Divider */}
-              <div className="divider" />
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-6">
-                {specializations.map((tag) => (
-                  <span key={tag} className="tag">{tag}</span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="grid grid-cols-2 gap-px border border-border rounded-lg overflow-hidden"
-            >
-              {[
-                { value: "4+", label: "Brands & Concepts" },
-                { value: "100%", label: "Human-Centered" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-card p-6 text-center border-r border-border last:border-r-0"
+            {/* Specialization Tags in Theme */}
+            <div className="flex flex-wrap gap-2.5 pt-4">
+              {specializations.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center px-4 py-2 rounded-full text-xs font-bold bg-white text-[hsl(16_75%_35%)] border-2 border-[hsl(16_75%_36%/0.3)] shadow-xs hover:border-[#F59E0B] hover:ring-1 hover:ring-[hsl(16_75%_36%)] transition-all"
                 >
-                  <span
-                    className="block text-3xl font-black text-foreground mb-1"
-                    style={{ fontFamily: "var(--font-playfair)" }}
-                  >
-                    {stat.value}
-                  </span>
-                  <span className="label-overline">{stat.label}</span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Right: Accordion */}
-          <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="mb-8"
-            >
-              <p className="label-overline mb-3">Narrative Framework</p>
-              <h3 className="section-heading text-2xl md:text-3xl">
-                Literature <span className="italic">meets</span> UX
-              </h3>
-            </motion.div>
-
-            <div className="divide-y divide-border border border-border rounded-lg overflow-hidden">
-              {literatureToUx.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.07 }}
-                >
-                  <button
-                    className="w-full text-left px-6 py-5 flex justify-between items-center bg-card hover:bg-muted transition-colors duration-200"
-                    onClick={() => setActiveIndex(activeIndex === i ? null : i)}
-                  >
-                    <div>
-                      <span className="label-overline text-muted-foreground block mb-1">
-                        Phase {i + 1} — {item.phase}
-                      </span>
-                      <span
-                        className="text-sm font-semibold text-foreground"
-                        style={{ fontFamily: "var(--font-inter)" }}
-                      >
-                        {item.literaryConcept} → {item.uxConcept}
-                      </span>
-                    </div>
-                    <span className="text-muted-foreground text-lg font-light ml-4 flex-shrink-0">
-                      {activeIndex === i ? "−" : "+"}
-                    </span>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {activeIndex === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="overflow-hidden"
-                      >
-                        <p className="px-6 py-4 body-text text-sm bg-muted border-t border-border">
-                          {item.description}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
+                  {tag}
+                </span>
               ))}
             </div>
-          </div>
+          </motion.div>
+
+          {/* Stats Cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4"
+          >
+            {[
+              { value: "4+", label: "Brands & Concepts" },
+              { value: "100%", label: "Human-Centered" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="bg-white rounded-2xl p-6 text-center border-2 border-[hsl(16_75%_36%/0.25)] shadow-xs hover:border-[#F59E0B] hover:ring-2 hover:ring-[hsl(16_75%_36%)] transition-all"
+              >
+                <span
+                  className="block text-3xl md:text-4xl font-black text-[hsl(16_75%_35%)] mb-1"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  {stat.value}
+                </span>
+                <span className="label-overline text-xs">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
         </div>
+
       </div>
     </section>
   );

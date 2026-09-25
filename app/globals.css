@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+/*
+  ✦ RUST — Design System
+  ──────────────────────────────────────────────────
+  Background : Deep, rich rust / burnt sienna
+  Foreground : Warm off-white / cream
+  Accent     : Pure white (buttons, highlights)
+  Fonts      : Playfair Display (headings) + Inter (body)
+*/
+
+@theme {
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  /* ── White Background & Rust Orange Palette ── */
+  --background:       hsl(0 0% 100%);     /* crisp pure white            */
+  --background-alt:   hsl(24 45% 98%);    /* soft warm white for panels   */
+  --foreground:       hsl(16 75% 35%);    /* rich deep rust orange        */
+
+  /* ── Accent ── */
+  --accent:           hsl(16 75% 38%);    /* vibrant rust orange          */
+  --accent-foreground: hsl(0 0% 100%);    /* crisp white on rust buttons  */
+
+  /* ── Muted ── */
+  --muted:            hsl(16 55% 95%);    /* soft warm rust-tinted white  */
+  --muted-foreground: hsl(18 35% 30%);    /* deep warm rust-charcoal body */
+
+  /* ── Cards ── */
+  --card:             hsl(0 0% 100%);     /* clean white card             */
+  --card-foreground:  hsl(16 75% 35%);
+
+  /* ── Borders ── */
+  --border:           hsl(16 40% 86%);    /* soft rust hairline border    */
+  --border-strong:    hsl(16 75% 45%);    /* prominent rust border        */
+
+  /* ── Ring ── */
+  --ring:             hsl(16 75% 38%);
+}
+
+/* ── Base reset ── */
+* {
+  border-color: var(--border);
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), Georgia, serif;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+::selection {
+  background: hsl(16 75% 36%);
+  color: hsl(0 0% 100%);
+}
+
+/* ── LAYOUT ── */
+.container-editorial {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── CARDS ── */
+.card-editorial {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(184, 58, 27, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-editorial:hover {
+  box-shadow: 0 8px 30px rgba(184, 58, 27, 0.12);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+/* ── TYPOGRAPHY ── */
+.display-heading {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: var(--foreground);
+}
+
+.section-heading {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+}
+
+.label-overline {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  opacity: 0.8;
+}
+
+.body-text {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+/* ── BUTTONS ── */
+/* Primary = Rust orange button with crisp white text */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  background: hsl(16 75% 36%);
+  color: hsl(0 0% 100%) !important;
+  border-radius: 6px;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  border: 1px solid hsl(16 75% 36%);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(184, 58, 27, 0.18);
+}
+
+.btn-primary:hover {
+  background: hsl(16 80% 30%);
+  border-color: hsl(16 80% 30%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(184, 58, 27, 0.25);
+}
+
+/* Secondary = Outlined rust orange */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  background: transparent;
+  color: hsl(16 75% 36%) !important;
+  border-radius: 6px;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  border: 1.5px solid hsl(16 75% 36%);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: hsl(16 75% 36% / 0.08);
+  border-color: hsl(16 80% 30%);
+  color: hsl(16 80% 30%) !important;
+  transform: translateY(-1px);
+}
+
+/* ── TAGS ── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: hsl(16 55% 95%);
+  color: hsl(16 75% 35%);
+  border: 1px solid hsl(16 40% 86%);
+}
+
+/* ── DIVIDERS ── */
+.divider {
+  width: 40px;
+  height: 2px;
+  background: hsl(16 75% 45%);
+  border-radius: 2px;
+  margin: 1rem 0;
+}
+
+/* ── UNDERLINE ── */
+.underline-editorial {
+  text-decoration: underline;
+  text-decoration-color: hsl(16 75% 45% / 0.5);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
